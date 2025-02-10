@@ -134,7 +134,11 @@ public interface Capability {
 
       if (!name.matches(DEFAULT_NAME_PATTERN)) {
         return CapabilityResult.unsupported(
-            String.format("The %s name '%s' is illegal.", scope, name));
+            String.format(
+                "The %s name '%s' is illegal. It must start with a letter, digit, or underscore, "
+                    + "and may contain letters, digits, underscores, slashes, hyphens, or equals signs, "
+                    + "with a maximum length of 64 characters.",
+                scope, name));
       }
       return CapabilityResult.SUPPORTED;
     }
